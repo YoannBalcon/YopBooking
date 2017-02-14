@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,7 +29,7 @@ public class ListEventAdapter extends ArrayAdapter<Event> {
 
     Button btnEventRegister;
     Button btnEventMore;
-    //private Context context;
+    TableLayout tblEvent;
 
 
     public ListEventAdapter(Context context, List<Event> listEvents) {
@@ -58,8 +59,8 @@ public class ListEventAdapter extends ArrayAdapter<Event> {
 
         TextView lblEventTitle = (TextView) convertView.findViewById(R.id.lblEventTitle);
 
-        btnEventMore = (Button) convertView.findViewById(R.id.btnEventMore);
-        btnEventMore.setOnClickListener(new View.OnClickListener() {
+        tblEvent = (TableLayout) convertView.findViewById(R.id.tblEvent);
+        tblEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

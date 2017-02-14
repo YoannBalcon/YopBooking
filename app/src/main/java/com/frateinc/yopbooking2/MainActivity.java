@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         lblEventTitle = (TextView) findViewById(R.id.lblEventTitle);
         lblEventBy = (TextView) findViewById(R.id.lblEventBy);
         btnEventRegister = (Button)findViewById(R.id.btnEventRegister);
-        btnEventMore = (Button)findViewById(R.id.btnEventMore);
 
         List<Event> events = null;
         try {
