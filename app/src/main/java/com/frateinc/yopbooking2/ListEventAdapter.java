@@ -30,6 +30,7 @@ public class ListEventAdapter extends ArrayAdapter<Event> {
     Button btnEventRegister;
     Button btnEventMore;
     TableLayout tblEvent;
+    TextView lblEventBy;
 
 
     public ListEventAdapter(Context context, List<Event> listEvents) {
@@ -58,6 +59,7 @@ public class ListEventAdapter extends ArrayAdapter<Event> {
         // Lookup view for data population
 
         TextView lblEventTitle = (TextView) convertView.findViewById(R.id.lblEventTitle);
+        TextView lblEventBy = (TextView) convertView.findViewById(R.id.lblEventBy);
 
         tblEvent = (TableLayout) convertView.findViewById(R.id.tblEvent);
         tblEvent.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +81,7 @@ public class ListEventAdapter extends ArrayAdapter<Event> {
 
 
         lblEventTitle.setText(lEvent.getTitle());
+        lblEventBy.setText("Par " + lEvent.getFirstname() + " " + lEvent.getLastname() );
 
 
         // Return the completed view to render on screen
