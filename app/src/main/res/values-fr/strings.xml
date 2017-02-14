@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Yopbooking2</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="organisator">Par</string>
+    <string name="partyLocation">Où</string>
+    <string name="partyHour">Quand</string>
+    <string name="partyName">Nom de la soirée</string>
+</resources>
