@@ -2,20 +2,11 @@ package com.frateinc.yopbooking2;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.frateinc.yopbooking2.R;
 import com.frateinc.yopbooking2.models.Event;
 
-import org.w3c.dom.Text;
-
-import java.util.List;
 import java.util.concurrent.ExecutionException;
-
-import static com.frateinc.yopbooking2.R.id.txtDetailsPartyName;
 
 /**
  * Created by Afpa on 08/02/2017.
@@ -45,7 +36,7 @@ public class DetailsEvent extends AppCompatActivity {
         eventId = getIntent().getStringExtra("liste_event");
 
         try {
-            FindEventsById data = new FindEventsById();
+            FindEventById data = new FindEventById();
             data.execute(eventId);
             Event evt = data.get();
 

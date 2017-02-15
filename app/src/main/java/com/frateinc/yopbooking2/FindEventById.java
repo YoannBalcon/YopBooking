@@ -26,9 +26,9 @@ import javax.net.ssl.HttpsURLConnection;
  * Created by Afpa on 13/02/2017.
  */
 
-public class FindEventsById extends AsyncTask<String, Void, Event> {
+public class FindEventById extends AsyncTask<String, Void, Event> {
 
-    private final String link = "http://10.105.49.71:8080/api/v1/events/";
+    private final String link = "http://10.105.49.71:8080/api/v1/event/";
 
 
     @Override
@@ -67,7 +67,7 @@ public class FindEventsById extends AsyncTask<String, Void, Event> {
 
                 int id = jsonObject.getInt("id");
                 String title = jsonObject.getString("title");
-                int organisator_id = jsonObject.getInt("organisator_id");
+                int user_id = jsonObject.getInt("user_id");
                 String date = jsonObject.getString("date");
                 int hour = jsonObject.getInt("hour");
                 String adress = jsonObject.getString("adress");
@@ -81,7 +81,7 @@ public class FindEventsById extends AsyncTask<String, Void, Event> {
                 Date eventDate = convertDate(date);
                 Date currentDate = convertDate(creationDate);
 
-                evt = new Event(id, title, organisator_id, eventDate, hour, adress, zipcode, city, comment, currentDate, firstname, lastname);
+                evt = new Event(id, title, user_id, eventDate, hour, adress, zipcode, city, comment, currentDate, firstname, lastname);
 
 
 

@@ -3,7 +3,10 @@
     <string name="app_name">Yopbooking2</string>
     <string name="action_settings">Settings</string>
     <string name="organisator">By</string>
-    <string name="partyHour">Hour</string>
+    <string name="partyDate"> Date</string>
+    <string name="partyHour"> Hour</string>
+    <string name="partyAddress">Address</string>
+    <string name="partyZipcode">Zipcode</string>
     <string name="partyLocation">Location</string>
     <string name="partyName">Party name</string>
 </resources>

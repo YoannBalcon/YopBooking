@@ -49,17 +49,50 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
+                android:inputType="date"
+                android:ems="10"
+                android:id="@+id/txtAddEventDate"
+                android:hint="@string/partyDate"
+                android:gravity="center_vertical|center" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="time"
                 android:ems="10"
                 android:id="@+id/txtAddEventHour"
                 android:hint="@string/partyHour"
-                android:gravity="center_vertical|center_horizontal" />
+                android:gravity="center_vertical|center" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/txtAddEventAddress"
+                android:gravity="center_vertical|center"
+                android:hint="@string/partyAddress" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/txtAddEventZipcode"
+                android:gravity="center_vertical|center"
+                android:hint="@string/partyZipcode" />
 
             <EditText
                 android:layout_width="wrap_content"

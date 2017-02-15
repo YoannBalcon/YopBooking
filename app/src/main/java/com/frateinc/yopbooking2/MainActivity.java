@@ -25,19 +25,17 @@ import static android.R.attr.value;
 
 public class MainActivity extends AppCompatActivity {
     List<Event> events = new ArrayList<>();
-    TextView lblEventTitle;
-    TextView lblEventBy;
-    Button btnEventRegister;
-    Button btnEventMore;
-    Button btnAddEvent;
+//    TextView lblEventTitle;
+//    TextView lblEventBy;
+//    Button btnEventRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        lblEventTitle = (TextView) findViewById(R.id.lblEventTitle);
-        lblEventBy = (TextView) findViewById(R.id.lblEventBy);
-        btnEventRegister = (Button)findViewById(R.id.btnEventRegister);
+//        lblEventTitle = (TextView) findViewById(R.id.lblEventTitle);
+//        lblEventBy = (TextView) findViewById(R.id.lblEventBy);
+//        btnEventRegister = (Button)findViewById(R.id.btnEventRegister);
 
         List<Event> events = null;
         try {

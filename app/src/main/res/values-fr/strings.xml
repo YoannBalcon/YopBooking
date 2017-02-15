@@ -3,7 +3,10 @@
     <string name="app_name">Yopbooking2</string>
     <string name="action_settings">Paramètres</string>
     <string name="organisator">Par</string>
-    <string name="partyLocation">Où</string>
-    <string name="partyHour">Quand</string>
-    <string name="partyName">Nom de la soirée</string>
+    <string name="partyDate"> Date</string>
+    <string name="partyHour"> Heure</string>
+    <string name="partyAddress">Adresse</string>
+    <string name="partyZipcode">Code postal</string>
+    <string name="partyLocation">Ville</string>
+    <string name="partyName">Party name</string>
 </resources>

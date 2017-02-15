@@ -3,7 +3,9 @@
     <string name="action_settings">Settings</string>
     <string name="partyName">Party name</string>
     <string name="organisator">By</string>
-    <string name="partyHour"> Hour</string>
+    <string name="partyDate"> Date</string>
+    <string name="partyAddress">Address</string>
+    <string name="partyZipcode">Zipcode</string>
     <string name="partyLocation">Location</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>
     <string name="large_text">
@@ -95,4 +97,5 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="partyHour">Hour</string>
 </resources>

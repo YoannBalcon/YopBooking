@@ -51,7 +51,7 @@ public class FindEvents  extends AsyncTask<String, Void, List<Event>> {
             urlConnection.setRequestProperty("Accept", "application/json");
             urlConnection.connect();
             if (urlConnection.getResponseCode() == HttpsURLConnection.HTTP_OK) {
-                System.out.println("OK");
+                System.out.println("OK FIND EVENT");
 
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
                 BufferedReader br = new BufferedReader(new InputStreamReader(in));
@@ -63,7 +63,7 @@ public class FindEvents  extends AsyncTask<String, Void, List<Event>> {
                 br.close();
 
             } else {
-                System.out.println("PAS OK");
+                System.out.println("PAS OK FIND EVENT");
             }
             urlConnection.disconnect();
 
@@ -74,7 +74,7 @@ public class FindEvents  extends AsyncTask<String, Void, List<Event>> {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 int id = jsonObject.getInt("id");
                 String title = jsonObject.getString("title");
-                int organisator_id = jsonObject.getInt("organisator_id");
+                int user_id = jsonObject.getInt("user_id");
                 String date = jsonObject.getString("date");
                 int hour = jsonObject.getInt("hour");
                 String adress = jsonObject.getString("adress");
@@ -88,7 +88,7 @@ public class FindEvents  extends AsyncTask<String, Void, List<Event>> {
                 Date eventDate = convertDate(date);
                 Date currentDate = convertDate(creationDate);
 
-                Event evt = new Event(id, title, organisator_id, eventDate, hour, adress, zipcode, city, comment, currentDate, firstname, lastname);
+                Event evt = new Event(id, title, user_id, eventDate, hour, adress, zipcode, city, comment, currentDate, firstname, lastname);
 
                 events.add(evt);
 

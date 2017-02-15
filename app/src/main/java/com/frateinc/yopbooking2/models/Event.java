@@ -10,7 +10,7 @@ import java.util.Date;
 public class Event {
     int id;
     String title;
-    int organisator_id;
+    int user_id;
     Date date;
     int hour;
     String adress;
@@ -26,10 +26,20 @@ public class Event {
     public Event() {
     }
 
-    public Event(int id, String title, int organisator_id, Date date, int hour, String adress, int zipcode, String city, String comment, Date creationDate, String firstname, String lastname) {
+    public Event(String title, int user_id, int hour, String adress, int zipcode, String city, String comment) {
+        this.title = title;
+        this.user_id = user_id;
+        this.hour = hour;
+        this.adress = adress;
+        this.zipcode = zipcode;
+        this.city = city;
+        this.comment = comment;
+    }
+
+    public Event(int id, String title, int user_id, Date date, int hour, String adress, int zipcode, String city, String comment, Date creationDate, String firstname, String lastname) {
         this.id = id;
         this.title = title;
-        this.organisator_id = organisator_id;
+        this.user_id = user_id;
         this.date = date;
         this.hour = hour;
         this.adress = adress;
@@ -57,12 +67,12 @@ public class Event {
         this.lastname = lastname;
     }
 
-    public int getOrganisator_id() {
-        return organisator_id;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public void setOrganisator_id(int organisator_id) {
-        this.organisator_id = organisator_id;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
     public int getId() {

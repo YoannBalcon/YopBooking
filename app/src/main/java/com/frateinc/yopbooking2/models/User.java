@@ -4,12 +4,12 @@ package com.frateinc.yopbooking2.models;
  * Created by Afpa on 09/02/2017.
  */
 
-public class Organisator {
+public class User {
     int id;
     String firstname;
     String lastname;
 
-    public Organisator(int id, String firstname, String lastname) {
+    public User(int id, String firstname, String lastname) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
