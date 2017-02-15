@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,7 +29,8 @@ public class ListEventAdapter extends ArrayAdapter<Event> {
 
     Button btnEventRegister;
     Button btnEventMore;
-    //private Context context;
+    TableLayout tblEvent;
+    TextView lblEventBy;
 
 
     public ListEventAdapter(Context context, List<Event> listEvents) {
@@ -57,9 +59,10 @@ public class ListEventAdapter extends ArrayAdapter<Event> {
         // Lookup view for data population
 
         TextView lblEventTitle = (TextView) convertView.findViewById(R.id.lblEventTitle);
+        TextView lblEventBy = (TextView) convertView.findViewById(R.id.lblEventBy);
 
-        btnEventMore = (Button) convertView.findViewById(R.id.btnEventMore);
-        btnEventMore.setOnClickListener(new View.OnClickListener() {
+        tblEvent = (TableLayout) convertView.findViewById(R.id.tblEvent);
+        tblEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -78,6 +81,7 @@ public class ListEventAdapter extends ArrayAdapter<Event> {
 
 
         lblEventTitle.setText(lEvent.getTitle());
+        lblEventBy.setText("Par " + lEvent.getFirstname() + " " + lEvent.getLastname() );
 
 
         // Return the completed view to render on screen

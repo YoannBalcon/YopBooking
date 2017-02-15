@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     TextView lblEventBy;
     Button btnEventRegister;
     Button btnEventMore;
+    Button btnAddEvent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         lblEventTitle = (TextView) findViewById(R.id.lblEventTitle);
         lblEventBy = (TextView) findViewById(R.id.lblEventBy);
         btnEventRegister = (Button)findViewById(R.id.btnEventRegister);
-        btnEventMore = (Button)findViewById(R.id.btnEventMore);
 
         List<Event> events = null;
         try {
@@ -60,6 +60,19 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             });
+
+            final Button button = (Button) findViewById(R.id.btnAddEvent);
+            button.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    // Perform action on click
+                    Intent activityChangeIntent = new Intent(MainActivity.this, AddEvent.class);
+
+                    // currentContext.startActivity(activityChangeIntent);
+
+                    MainActivity.this.startActivity(activityChangeIntent);
+                }
+            });
+
 
 
 
