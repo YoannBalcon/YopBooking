@@ -54,8 +54,6 @@ public class ListEventAdapter extends ArrayAdapter<Event> {
 
         }
 
-
-
         // Lookup view for data population
 
         TextView lblEventTitle = (TextView) convertView.findViewById(R.id.lblEventTitle);
@@ -66,15 +64,14 @@ public class ListEventAdapter extends ArrayAdapter<Event> {
             @Override
             public void onClick(View v) {
 
-                Log.i(ListEventAdapter.class.getName(),lEvent.getTitle());
-
                 Intent intent = new Intent(getContext(), DetailsEvent.class);
-                intent.putExtra("liste_event","" + lEvent.getId());
-
+                intent.putExtra("event_id","" + lEvent.getId());
                 getContext().startActivity(intent);
-//                Toast.makeText(getContext(), "Row " + position + " was clicked!", Toast.LENGTH_SHORT).show();
             }
         });
+
+
+
 
 
         // Populate the data into the template view using the data object

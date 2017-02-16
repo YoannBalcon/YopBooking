@@ -44,13 +44,6 @@
                 android:layout_height="match_parent"
                 android:gravity="center">
 
-                <Button
-                    android:text="Register"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/btnEventRegister"
-                    android:elevation="0dp" />
-
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

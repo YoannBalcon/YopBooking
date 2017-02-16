@@ -1,6 +1,7 @@
 package com.frateinc.yopbooking2;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.frateinc.yopbooking2.models.Event;
 
@@ -22,7 +23,7 @@ import java.net.URL;
 
 public class InsertEvent extends AsyncTask<String, Void, Event> {
 
-    private final String link = "http://10.105.49.71:8080/api/v1/newevent/";
+    private final String link = "http://10.105.49.71:8080/api/v1/newevent";
 
     private Event event;
 
@@ -43,7 +44,7 @@ public class InsertEvent extends AsyncTask<String, Void, Event> {
             jsonParam.put("title", event.getTitle());
             jsonParam.put("user_id", event.getUser_id());
             jsonParam.put("hour", event.getHour());
-            jsonParam.put("adress", event.getAdress());
+            jsonParam.put("address", event.getaddress());
             jsonParam.put("zipcode", event.getZipcode());
             jsonParam.put("city", event.getCity());
             jsonParam.put("comment", event.getComment());
@@ -71,8 +72,8 @@ public class InsertEvent extends AsyncTask<String, Void, Event> {
 
             //urlConnection.connect();
 
-            //if (urlConnection.getResponseCode() == HttpsURLConnection.HTTP_OK) {
-            //    System.out.println("OK");
+
+            Log.i(InsertEvent.class.getName(), String.valueOf(urlConnection.getResponseCode())) ;
 
             InputStream in = new BufferedInputStream(urlConnection.getInputStream());
             BufferedReader br = new BufferedReader(new InputStreamReader(in));

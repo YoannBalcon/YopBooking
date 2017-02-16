@@ -40,8 +40,8 @@ public class FindEventById extends AsyncTask<String, Void, Event> {
         try {
             URL url = new URL(link + params[0]);
             urlConnection = (HttpURLConnection) url.openConnection();
-            urlConnection.setReadTimeout(3000);
-            urlConnection.setConnectTimeout(3000);
+            urlConnection.setReadTimeout(9999);
+            urlConnection.setConnectTimeout(9999);
             urlConnection.setRequestMethod("GET");
             urlConnection.setRequestProperty("User-Agent", "yopbooking");
             urlConnection.setRequestProperty("Accept", "application/json");
@@ -70,7 +70,7 @@ public class FindEventById extends AsyncTask<String, Void, Event> {
                 int user_id = jsonObject.getInt("user_id");
                 String date = jsonObject.getString("date");
                 int hour = jsonObject.getInt("hour");
-                String adress = jsonObject.getString("adress");
+                String address = jsonObject.getString("address");
                 int zipcode = jsonObject.getInt("zipcode");
                 String city = jsonObject.getString("city");
                 String comment = jsonObject.getString("comment");
@@ -81,7 +81,7 @@ public class FindEventById extends AsyncTask<String, Void, Event> {
                 Date eventDate = convertDate(date);
                 Date currentDate = convertDate(creationDate);
 
-                evt = new Event(id, title, user_id, eventDate, hour, adress, zipcode, city, comment, currentDate, firstname, lastname);
+                evt = new Event(id, title, user_id, eventDate, hour, address, zipcode, city, comment, currentDate, firstname, lastname);
 
 
 

@@ -23,14 +23,14 @@ $app->group('/api/v1', function () use ($app) {
      // Add a new event
     $app->post('/events', function ($request, $response) {
         $event = json_decode($request->getBody());
-        $sql = "INSERT INTO events (title, organisator_id, date, hour, adress, zipcode, city, comment, creationDate)"
-                . "VALUES (:title :organisator_id :date :hour :adress :zipcode :city :comment :creationDate)";
+        $sql = "INSERT INTO events (title, organisator_id, date, hour, address, zipcode, city, comment, creationDate)"
+                . "VALUES (:title :organisator_id :date :hour :address :zipcode :city :comment :creationDate)";
         $sth = $this->db->prepare($sql);
         $sth->bindParam("title", $event->title);
         $sth->bindParam("organisator_id", $event->organisator_id);
         $sth->bindParam("date", $event->date);
         $sth->bindParam("hour", $event->hour);
-        $sth->bindParam("adress", $event->adress);
+        $sth->bindParam("address", $event->address);
         $sth->bindParam("zipcode", $event->zipcode);
         $sth->bindParam("city", $event->city);
         $sth->bindParam("comment", $event->comment);

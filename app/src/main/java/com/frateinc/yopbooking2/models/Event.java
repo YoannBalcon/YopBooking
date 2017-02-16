@@ -13,7 +13,7 @@ public class Event {
     int user_id;
     Date date;
     int hour;
-    String adress;
+    String address;
     int zipcode;
     String city;
     String comment;
@@ -26,23 +26,35 @@ public class Event {
     public Event() {
     }
 
-    public Event(String title, int user_id, int hour, String adress, int zipcode, String city, String comment) {
+    public Event(String title, int user_id, int hour, String address, int zipcode, String city, String comment) {
         this.title = title;
         this.user_id = user_id;
         this.hour = hour;
-        this.adress = adress;
+        this.address = address;
         this.zipcode = zipcode;
         this.city = city;
         this.comment = comment;
     }
 
-    public Event(int id, String title, int user_id, Date date, int hour, String adress, int zipcode, String city, String comment, Date creationDate, String firstname, String lastname) {
+
+    public Event(int id, String title, int user_id, int hour, String address, int zipcode, String city, String comment) {
+        this.id = id;
+        this.title = title;
+        this.user_id = user_id;
+        this.hour = hour;
+        this.address = address;
+        this.zipcode = zipcode;
+        this.city = city;
+        this.comment = comment;
+    }
+
+    public Event(int id, String title, int user_id, Date date, int hour, String address, int zipcode, String city, String comment, Date creationDate, String firstname, String lastname) {
         this.id = id;
         this.title = title;
         this.user_id = user_id;
         this.date = date;
         this.hour = hour;
-        this.adress = adress;
+        this.address = address;
         this.zipcode = zipcode;
         this.city = city;
         this.comment = comment;
@@ -107,12 +119,12 @@ public class Event {
         this.hour = hour;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getaddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setaddress(String address) {
+        this.address = address;
     }
 
     public int getZipcode() {
@@ -158,7 +170,7 @@ public class Event {
 
     @Override
     public String toString() {
-        return this.title + " " + this.firstname;
+        return this.title;
     }
 
 

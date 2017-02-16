@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.frateinc.yopbooking2.models.Event;
 
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 //    TextView lblEventTitle;
 //    TextView lblEventBy;
 //    Button btnEventRegister;
+        Button btnLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
 
                     Log.i("selected id event:", String.valueOf(levent.getId()));
                     Intent i = new Intent(getApplicationContext(), DetailsEvent.class );
-                    i.putExtra("liste_film", levent.getId());
                     startActivity(i);
 
                 }
@@ -64,6 +65,20 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     // Perform action on click
                     Intent activityChangeIntent = new Intent(MainActivity.this, AddEvent.class);
+
+                    // currentContext.startActivity(activityChangeIntent);
+
+                    MainActivity.this.startActivity(activityChangeIntent);
+                }
+            });
+
+
+
+            final Button btnLogin = (Button) findViewById(R.id.btnLogin);
+            btnLogin.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    // Perform action on click
+                    Intent activityChangeIntent = new Intent(MainActivity.this, Login.class);
 
                     // currentContext.startActivity(activityChangeIntent);
 

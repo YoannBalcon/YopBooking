@@ -32,7 +32,7 @@ CREATE TABLE `events` (
   `organisator_id` int(11) NOT NULL,
   `date` date NOT NULL,
   `hour` tinyint(2) NOT NULL,
-  `adress` varchar(120) NOT NULL,
+  `address` varchar(120) NOT NULL,
   `zipcode` int(5) NOT NULL,
   `city` varchar(120) NOT NULL,
   `comment` varchar(250) NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE `events` (
 -- Contenu de la table `events`
 --
 
-INSERT INTO `events` (`id`, `title`, `organisator_id`, `date`, `hour`, `adress`, `zipcode`, `city`, `comment`, `creationDate`) VALUES
+INSERT INTO `events` (`id`, `title`, `organisator_id`, `date`, `hour`, `address`, `zipcode`, `city`, `comment`, `creationDate`) VALUES
 (1, 'Soirée LAN', 1, '2017-02-17', 23, '8 rue du clavier', 29250, 'St pol de léon', 'Apportez vos boissons les mecs !!! ', '2017-02-09'),
 (2, 'Soirée gears4', 2, '2017-02-22', 22, '2 rue de la manette', 29200, 'Brest', 'Ouais', '2017-02-09'),
 (3, 'Chips party', 1, '2017-02-24', 22, 'rue de la chips', 29600, 'montroulez', 'ça cwaque !', '2017-02-13');

@@ -20,6 +20,7 @@
         <activity android:name=".AddEvent" />
         <activity android:name=".DetailsEvent" />
         <activity android:name=".RegisterEvent" />
+        <activity android:name=".Login"/>
     </application>
 
 </manifest>
