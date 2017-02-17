@@ -31,7 +31,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class FindEvents  extends AsyncTask<String, Void, List<Event>> {
 
-    private final String link = "http://10.105.49.71:8080/api/v1/events";
+    private final String link = ConfigApi.findevent;
 
 
     @Override

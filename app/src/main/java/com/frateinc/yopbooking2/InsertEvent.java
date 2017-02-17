@@ -23,7 +23,7 @@ import java.net.URL;
 
 public class InsertEvent extends AsyncTask<String, Void, Event> {
 
-    private final String link = "http://10.105.49.71:8080/api/v1/newevent";
+    private final String link = ConfigApi.insertevent;
 
     private Event event;
 
