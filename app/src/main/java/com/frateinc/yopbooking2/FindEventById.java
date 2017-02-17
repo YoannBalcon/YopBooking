@@ -96,9 +96,9 @@ public class FindEventById extends AsyncTask<String, Void, Event> {
     private static Date convertDate(String str) {
         DateFormat formatter = null;
         Date convertedDate = null;
-        formatter = new SimpleDateFormat("yyyy-MM-dd");
+        formatter = new SimpleDateFormat("yyyy-mm-dd");
         try {
-            convertedDate = (Date) formatter.parse(str);
+            convertedDate = formatter.parse(str);
         } catch (ParseException ex) {
 //            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }

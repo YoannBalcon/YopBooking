@@ -26,10 +26,12 @@ import static android.R.attr.value;
 
 public class MainActivity extends AppCompatActivity {
     List<Event> events = new ArrayList<>();
-//    TextView lblEventTitle;
+    //    TextView lblEventTitle;
 //    TextView lblEventBy;
 //    Button btnEventRegister;
-        Button btnLogin;
+    Button btnLogin;
+    String userName;
+    TextView txtUserName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 //        lblEventTitle = (TextView) findViewById(R.id.lblEventTitle);
 //        lblEventBy = (TextView) findViewById(R.id.lblEventBy);
 //        btnEventRegister = (Button)findViewById(R.id.btnEventRegister);
+        userName = getIntent().getStringExtra("user_name");
 
         List<Event> events = null;
         try {
@@ -54,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                     Event levent = adapter.getItem(position);
 
                     Log.i("selected id event:", String.valueOf(levent.getId()));
-                    Intent i = new Intent(getApplicationContext(), DetailsEvent.class );
+                    Intent i = new Intent(getApplicationContext(), DetailsEvent.class);
                     startActivity(i);
 
                 }
@@ -73,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
             });
 
 
-
             final Button btnLogin = (Button) findViewById(R.id.btnLogin);
             btnLogin.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
@@ -85,9 +87,8 @@ public class MainActivity extends AppCompatActivity {
                     MainActivity.this.startActivity(activityChangeIntent);
                 }
             });
-
-
-
+            TextView txtUserName = (TextView) findViewById(R.id.txtUserName);
+            txtUserName.setText(userName);
 
 //
 //            btnEventMore.setOnClickListener(new View.OnClickListener() {
@@ -106,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
 //                    startActivity(i);
 //                }
 //            });
-
 
 
         } catch (InterruptedException e) {

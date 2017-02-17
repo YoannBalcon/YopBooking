@@ -26,7 +26,7 @@ public class Event {
     public Event() {
     }
 
-    public Event(String title, int user_id, int hour, String address, int zipcode, String city, String comment) {
+    public Event(String title, int user_id, int hour, String address, int zipcode, String city, String comment, Date creationDate) {
         this.title = title;
         this.user_id = user_id;
         this.hour = hour;
@@ -34,6 +34,7 @@ public class Event {
         this.zipcode = zipcode;
         this.city = city;
         this.comment = comment;
+        this.creationDate = creationDate;
     }
 
 

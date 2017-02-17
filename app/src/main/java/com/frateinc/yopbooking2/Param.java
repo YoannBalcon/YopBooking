@@ -6,5 +6,5 @@ package com.frateinc.yopbooking2;
 
 public class Param {
 
-    public static String userId = null;
+    public static int userId = 0 ;
 }

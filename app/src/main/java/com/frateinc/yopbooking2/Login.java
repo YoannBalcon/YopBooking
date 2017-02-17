@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import static com.frateinc.yopbooking2.Param.userId;
+
 public class Login extends AppCompatActivity {
 
     @Override
@@ -17,21 +19,33 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-        final Spinner dropdown = (Spinner)findViewById(R.id.spinner);
-        String[] items = new String[]{"Stal", "RiCo", "Giovanni"};
+        final Spinner dropdown = (Spinner) findViewById(R.id.spinner);
+        final String[] items = new String[]{"Stal", "RiCo", "Giovanni"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);
 
         final Button button = (Button) findViewById(R.id.btnListLogin);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Param.userId = (String) dropdown.getSelectedItem();
+                String currentItem = (String) dropdown.getSelectedItem();
+
+
+                if (currentItem.contentEquals("Stal")) {
+                    Param.userId = 1;
+                } else if (currentItem.contentEquals("RiCo")) {
+                    Param.userId = 2;
+                } else if (currentItem.contentEquals("Giovanni")) {
+                    Param.userId = 3;
+                }
+
                 System.out.print((String) dropdown.getSelectedItem());
 
                 // Perform action on click
-                Intent activityChangeIntent = new Intent(Login.this, AddEvent.class);
+                Intent intent = new Intent(Login.this, MainActivity.class);
+                intent.putExtra("user_name", currentItem);
+
                 // currentContext.startActivity(activityChangeIntent);
-                Login.this.startActivity(activityChangeIntent);
+                Login.this.startActivity(intent);
 
             }
         });
