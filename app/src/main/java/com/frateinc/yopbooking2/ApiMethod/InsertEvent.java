@@ -1,9 +1,10 @@
-package com.frateinc.yopbooking2;
+package com.frateinc.yopbooking2.ApiMethod;
 
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.frateinc.yopbooking2.models.Event;
+import com.frateinc.yopbooking2.Config.ConfigApi;
+import com.frateinc.yopbooking2.Models.Event;
 
 import org.json.JSONObject;
 

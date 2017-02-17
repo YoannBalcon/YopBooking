@@ -1,4 +1,4 @@
-package com.frateinc.yopbooking2.models;
+package com.frateinc.yopbooking2.Models;
 
 import java.util.ArrayList;
 import java.util.Date;

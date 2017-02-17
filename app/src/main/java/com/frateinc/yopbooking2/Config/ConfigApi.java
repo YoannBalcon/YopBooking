@@ -1,4 +1,4 @@
-package com.frateinc.yopbooking2;
+package com.frateinc.yopbooking2.Config;
 
 /**
  * Created by rico on 17/02/17.

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Yopbooking2</string>
+    <string name="app_name">YopBooking</string>
     <string name="action_settings">Settings</string>
     <string name="partyName">Party name</string>
     <string name="organisator">By</string>
@@ -7,23 +7,13 @@
     <string name="partyAddress">Address</string>
     <string name="partyZipcode">Zipcode</string>
     <string name="partyLocation">Location</string>
-    <string name="title_activity_scrolling">ScrollingActivity</string>
-    <string name="large_text">
-       s they move between "
-        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
-    </string>
     <string name="partyHour">Hour</string>
+    <string name="switch_user">Switch user</string>
+    <string name="add_an_event">Add an event</string>
+    <string name="add">Add</string>
+    <string name="welcome_to_yopbooking">Welcome to YopBooking !</string>
+    <string name="please_log_in">Please log in</string>
+    <string name="log_in">Log in</string>
+    <string name="register">Register</string>
 
-    <string name="country_prompt">Choose a country</string>
-
-    <string-array name="country_arrays">
-        <item>Malaysia</item>
-        <item>United States</item>
-        <item>Indonesia</item>
-        <item>France</item>
-        <item>Italy</item>
-        <item>Singapore</item>
-        <item>New Zealand</item>
-        <item>India</item>
-    </string-array>
 </resources>

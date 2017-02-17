@@ -1,8 +1,9 @@
-package com.frateinc.yopbooking2;
+package com.frateinc.yopbooking2.ApiMethod;
 
 import android.os.AsyncTask;
 
-import com.frateinc.yopbooking2.models.Event;
+import com.frateinc.yopbooking2.Config.ConfigApi;
+import com.frateinc.yopbooking2.Models.Event;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -26,19 +27,20 @@ import javax.net.ssl.HttpsURLConnection;
  * Created by Afpa on 13/02/2017.
  */
 
-public class FindEventById extends AsyncTask<String, Void, Event> {
+public class FindEvents  extends AsyncTask<String, Void, List<Event>> {
 
-    private final String link = ConfigApi.findeventbyid;
+    private final String link = ConfigApi.findevent;
 
 
     @Override
-    protected Event doInBackground(String... params) {
+    protected List<Event> doInBackground(String... params) {
         StringBuilder sb = new StringBuilder();
         HttpURLConnection urlConnection;
-        Event evt = null;
+
+        List<Event> events = new ArrayList<>();
 
         try {
-            URL url = new URL(link + params[0]);
+            URL url = new URL(link);
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setReadTimeout(9999);
             urlConnection.setConnectTimeout(9999);
@@ -47,7 +49,7 @@ public class FindEventById extends AsyncTask<String, Void, Event> {
             urlConnection.setRequestProperty("Accept", "application/json");
             urlConnection.connect();
             if (urlConnection.getResponseCode() == HttpsURLConnection.HTTP_OK) {
-                System.out.println("OK");
+                System.out.println("OK FIND EVENT");
 
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
                 BufferedReader br = new BufferedReader(new InputStreamReader(in));
@@ -59,12 +61,15 @@ public class FindEventById extends AsyncTask<String, Void, Event> {
                 br.close();
 
             } else {
-                System.out.println("PAS OK");
+                System.out.println("PAS OK FIND EVENT");
             }
             urlConnection.disconnect();
 
-            JSONObject jsonObject= new JSONObject(sb.toString());
+            JSONArray jsonArray = new JSONArray(sb.toString());
 
+            for (int i = 0; i < jsonArray.length(); i++) {
+
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
                 int id = jsonObject.getInt("id");
                 String title = jsonObject.getString("title");
                 int user_id = jsonObject.getInt("user_id");
@@ -81,24 +86,25 @@ public class FindEventById extends AsyncTask<String, Void, Event> {
                 Date eventDate = convertDate(date);
                 Date currentDate = convertDate(creationDate);
 
-                evt = new Event(id, title, user_id, eventDate, hour, address, zipcode, city, comment, currentDate, firstname, lastname);
+                Event evt = new Event(id, title, user_id, eventDate, hour, address, zipcode, city, comment, currentDate, firstname, lastname);
 
+                events.add(evt);
 
-
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return evt;
+        return events;
 
     }
 
     private static Date convertDate(String str) {
         DateFormat formatter = null;
         Date convertedDate = null;
-        formatter = new SimpleDateFormat("yyyy-mm-dd");
+        formatter = new SimpleDateFormat("yyyy-MM-dd");
         try {
-            convertedDate = formatter.parse(str);
+            convertedDate = (Date) formatter.parse(str);
         } catch (ParseException ex) {
 //            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }

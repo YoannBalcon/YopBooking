@@ -3,23 +3,15 @@ package com.frateinc.yopbooking2;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.frateinc.yopbooking2.R;
-import com.frateinc.yopbooking2.models.Event;
-
-import org.json.JSONObject;
-
-import java.util.concurrent.ExecutionException;
-
-import static android.R.attr.data;
+import com.frateinc.yopbooking2.ApiMethod.InsertEvent;
+import com.frateinc.yopbooking2.Models.Event;
 
 /**
  * Created by Afpa on 13/02/2017.
@@ -88,17 +80,19 @@ public class AddEvent extends AppCompatActivity {
 //                    txtAddEventComment.setError("ERROR");
 //                    return;
                 } else {
+
                     InsertEvent data = new InsertEvent(addedEvent);
                     data.execute();
                     Toast.makeText(AddEvent.this, "Event created", Toast.LENGTH_SHORT).show();
 
-                    Intent intent = new Intent(AddEvent.this, MainActivity.class);
+                    Intent intent = new Intent(AddEvent.this, ListEvents.class);
                     AddEvent.this.startActivity(intent);
                 }
 
             }
 
         });
+
 
     }
 }
