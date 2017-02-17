@@ -17,8 +17,6 @@ import com.frateinc.yopbooking2.models.Event;
 
 import org.json.JSONObject;
 
-import java.util.Calendar;
-import java.util.Date;
 import java.util.concurrent.ExecutionException;
 
 import static android.R.attr.data;
@@ -43,13 +41,6 @@ public class AddEvent extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_event);
 
-
-        Calendar c = Calendar.getInstance();
-        int currentDate = c.get(Calendar.DATE);
-        final Date convertDate = new Date(currentDate);
-        Log.i("DAAAAATE : ", String.valueOf(convertDate));
-
-
         btnAddEvent = (Button) findViewById(R.id.btnAddEvent);
         txtAddEventName = (EditText) findViewById(R.id.txtAddEventName);
 //        txtAddEventOrg = (EditText) findViewById(R.id.txtAddEventOrg);
@@ -67,6 +58,7 @@ public class AddEvent extends AppCompatActivity {
 
                 Editable v_txtAddEventName = txtAddEventName.getText();
 //                Editable v_txtAddEventOrg = txtAddEventOrg.getText();
+//                String v_txtAddEventOrg = Param.userId;
                 Editable v_txtAddEventHour = txtAddEventHour.getText();
                 Editable v_txtAddEventAddress = txtAddEventAddress.getText();
                 Editable v_txtAddEventZipcode = txtAddEventZipcode.getText();

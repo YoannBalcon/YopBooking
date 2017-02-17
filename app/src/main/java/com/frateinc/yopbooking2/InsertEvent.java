@@ -17,9 +17,6 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-/**
- * Created by Afpa on 13/02/2017.
- */
 
 public class InsertEvent extends AsyncTask<String, Void, Event> {
 
