@@ -73,7 +73,7 @@ public class AddEvent extends AppCompatActivity {
                 Editable v_txtAddEventLocation = txtAddEventLocation.getText();
                 Editable v_txtAddEventComment = txtAddEventComment.getText();
 
-                Event addedEvent = new Event(v_txtAddEventName.toString(), Param.userId, Integer.parseInt(v_txtAddEventHour.toString()), v_txtAddEventAddress.toString(), Integer.parseInt(v_txtAddEventZipcode.toString()), v_txtAddEventLocation.toString(), v_txtAddEventComment.toString(), convertDate);
+                Event addedEvent = new Event(v_txtAddEventName.toString(), Param.userId, Integer.parseInt(v_txtAddEventHour.toString()), v_txtAddEventAddress.toString(), Integer.parseInt(v_txtAddEventZipcode.toString()), v_txtAddEventLocation.toString(), v_txtAddEventComment.toString());
                 if (TextUtils.isEmpty(v_txtAddEventName.toString())) {
                     txtAddEventName.setError("ERROR");
                     return;

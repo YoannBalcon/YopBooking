@@ -48,7 +48,6 @@ public class InsertEvent extends AsyncTask<String, Void, Event> {
             jsonParam.put("zipcode", event.getZipcode());
             jsonParam.put("city", event.getCity());
             jsonParam.put("comment", event.getComment());
-            jsonParam.put("creationDate", event.getCreationDate());
             jsonParam.put("enable", "true");
 
             urlConnection = (HttpURLConnection) url.openConnection();
