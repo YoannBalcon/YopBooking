@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bgloginv2">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -30,7 +31,7 @@
                 android:id="@+id/txtDetailsPartyName"
                 android:textSize="24sp"
                 android:textStyle="normal|bold"
-                />
+                android:textColor="@android:color/background_light" />
 
             <TextView
                 android:text="TextView"
@@ -39,7 +40,8 @@
                 android:layout_below="@+id/txtDetailsPartyName"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:id="@+id/txtDetailsOrg" />
+                android:id="@+id/txtDetailsOrg"
+                android:textColor="@android:color/background_light" />
 
             <TextView
                 android:text="TextView"
@@ -48,7 +50,8 @@
                 android:layout_below="@+id/txtDetailsOrg"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:id="@+id/txtDetailsDate" />
+                android:id="@+id/txtDetailsDate"
+                android:textColor="@android:color/background_light" />
 
             <TextView
                 android:text="Coordinates"
@@ -60,7 +63,8 @@
                 android:textSize="18sp"
                 android:layout_below="@+id/txtDetailsDate"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:layout_alignParentStart="true"
+                android:textColor="@android:color/background_light" />
 
             <TextView
                 android:text="TextView"
@@ -69,7 +73,8 @@
                 android:layout_below="@+id/textView8"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:id="@+id/txtDetailsaddress" />
+                android:id="@+id/txtDetailsaddress"
+                android:textColor="@android:color/background_light" />
 
             <TextView
                 android:text="TextView"
@@ -78,7 +83,8 @@
                 android:layout_below="@+id/txtDetailsaddress"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:id="@+id/txtDetailsZipcode" />
+                android:id="@+id/txtDetailsZipcode"
+                android:textColor="@android:color/background_light" />
 
             <TextView
                 android:text="Comments"
@@ -90,7 +96,8 @@
                 android:layout_below="@+id/txtDetailsZipcode"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textColor="@android:color/background_light" />
 
             <TextView
                 android:text="TextView"
@@ -103,7 +110,8 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:maxLines = "20"
-                android:scrollbars = "vertical" />
+                android:scrollbars = "vertical"
+                android:textColor="@android:color/background_light" />
 
             <TextView
                 android:text="Participants"
@@ -115,14 +123,16 @@
                 android:textSize="18sp"
                 android:layout_below="@+id/txtDetailsComment"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:layout_alignParentStart="true"
+                android:textColor="@android:color/background_light" />
 
             <TextView
                 android:text="TextView"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                android:id="@+id/textView18"
-                android:textStyle="normal|bold|italic" />
+                android:id="@+id/txtDetailsRegistration"
+                android:textStyle="normal|bold|italic"
+                android:textColor="@android:color/background_light" />
 
             <android.support.design.widget.FloatingActionButton
                 android:layout_width="wrap_content"
