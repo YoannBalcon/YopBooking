@@ -1,8 +1,9 @@
-package com.frateinc.yopbooking2;
+package com.frateinc.yopbooking2.ApiMethod;
 
 import android.os.AsyncTask;
 
-import com.frateinc.yopbooking2.models.Event;
+import com.frateinc.yopbooking2.Config.ConfigApi;
+import com.frateinc.yopbooking2.Models.Event;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -18,10 +19,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -31,7 +29,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class FindEvents  extends AsyncTask<String, Void, List<Event>> {
 
-    private final String link = "http://10.105.49.71:8080/api/v1/events";
+    private final String link = ConfigApi.findevent;
 
 
     @Override

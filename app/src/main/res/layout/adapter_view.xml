@@ -12,20 +12,23 @@
 
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="121dp"
+            android:layout_height="101dp"
             android:gravity="center"
             android:id="@+id/tblEvent">
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:gravity="left|right">
 
                 <TextView
                     android:text="TextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/lblEventTitle"
-                    android:textSize="28sp" />
+                    android:textSize="28sp"
+                    android:gravity="top"
+                    android:textColor="@android:color/background_light" />
             </TableRow>
 
             <TableRow
@@ -36,19 +39,9 @@
                     android:text="TextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/lblEventBy" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center">
-
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
-
+                    android:id="@+id/lblEventBy"
+                    android:textColor="@android:color/background_light"
+                    android:textStyle="normal|italic" />
             </TableRow>
 
         </TableLayout>

@@ -2,21 +2,19 @@ package com.frateinc.yopbooking2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.frateinc.yopbooking2.models.Event;
+import com.frateinc.yopbooking2.ApiMethod.FindEventById;
+import com.frateinc.yopbooking2.Models.Event;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.ExecutionException;
-
-import static java.security.AccessController.getContext;
 
 /**
  * Created by Afpa on 08/02/2017.
@@ -30,7 +28,7 @@ public class DetailsEvent extends AppCompatActivity {
     TextView txtDetailsZipcode;
     TextView txtDetailsComment;
     String eventId;
-    Button btnDetailsRegister;
+    FloatingActionButton btnDetailsRegister;
     Date date;
 
     @Override
@@ -44,6 +42,8 @@ public class DetailsEvent extends AppCompatActivity {
         txtDetailsaddress = (TextView) findViewById(R.id.txtDetailsaddress);
         txtDetailsZipcode = (TextView) findViewById(R.id.txtDetailsZipcode);
         txtDetailsComment = (TextView) findViewById(R.id.txtDetailsComment);
+        txtDetailsComment.setMovementMethod(new ScrollingMovementMethod());
+        btnDetailsRegister = (FloatingActionButton)findViewById(R.id.btnDetailsRegister);
 
         eventId = getIntent().getStringExtra("event_id");
 
@@ -58,6 +58,7 @@ public class DetailsEvent extends AppCompatActivity {
             txtDetailsDate.setText(evt.getDate() + " à " + evt.getHour() + " h.");
             txtDetailsaddress.setText(evt.getaddress());
             txtDetailsZipcode.setText(String.valueOf(evt.getZipcode() + " " + evt.getCity()));
+            txtDetailsComment.setText(evt.getComment());
 
             Log.i("DATEFORMATEE", String.valueOf(date));
             Log.i("EVTDATE", String.valueOf(evt.getDate()));
@@ -70,16 +71,18 @@ public class DetailsEvent extends AppCompatActivity {
         }
         System.out.println("eventId= " + eventId);
 
-        btnDetailsRegister = (Button) findViewById(R.id.btnDetailsRegister);
-        btnDetailsRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        // Bouton à voir, fait planter =>
 
-                Intent intent = new Intent(DetailsEvent.this, RegisterEvent.class);
-                intent.putExtra("event_id", "" + eventId);
-                DetailsEvent.this.startActivity(intent);
-            }
-        });
+//        btnDetailsRegister = (FloatingActionButton) findViewById(R.id.btnDetailsRegister);
+//        btnDetailsRegister.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Intent intent = new Intent(DetailsEvent.this, RegisterEvent.class);
+//                intent.putExtra("event_id", "" + eventId);
+//                DetailsEvent.this.startActivity(intent);
+//            }
+//        });
     }
 
 
