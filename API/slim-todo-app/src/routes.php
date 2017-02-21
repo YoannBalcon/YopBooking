@@ -3,17 +3,17 @@
 
 $app->group('/api/v1', function () use ($app) {
     
-  // get all events
+  // get all event
   $app->get('/events',function ($request, $response, $args) {
-        $sth = $this->db->prepare("SELECT * FROM events e INNER JOIN organisators o ON e.organisator_id=o.id ORDER BY creationDate");
+        $sth = $this->db->prepare("SELECT e.id, e.title, e.user_id, e.date, e.hour, e.address, e.zipcode, e.city, e.comment, e.creationDate, u.firstname, u.lastname FROM event e INNER JOIN user u ON e.user_id=u.id ORDER BY creationDate");
       $sth->execute();
       $todos = $sth->fetchAll();
       var_dump ($todos);
       return $this->response->withJson($todos);
   });
 
-  $app->get('/events/[{id}]', function ($request, $response, $args) {
-         $sth = $this->db->prepare("SELECT * FROM events e INNER JOIN organisators o ON e.organisator_id=o.id WHERE e.id=:id");
+  $app->get('/event/[{id}]', function ($request, $response, $args) {
+         $sth = $this->db->prepare("SELECT e.id, e.title, e.user_id, e.date, e.hour, e.address, e.zipcode, e.city, e.comment, e.creationDate, u.firstname, u.lastname FROM event e INNER JOIN user u ON e.user_id = u.id WHERE e.id=:id");
         $sth->bindParam("id", $args['id']);
         $sth->execute();
         $todos = $sth->fetchObject();
@@ -21,14 +21,13 @@ $app->group('/api/v1', function () use ($app) {
     });
 
      // Add a new event
-    $app->post('/events', function ($request, $response) {
+    $app->post('/newevent', function ($request, $response) {
         $event = json_decode($request->getBody());
-        $sql = "INSERT INTO events (title, organisator_id, date, hour, address, zipcode, city, comment, creationDate)"
-                . "VALUES (:title :organisator_id :date :hour :address :zipcode :city :comment :creationDate)";
+        $sql = "INSERT INTO event (title, user_id, hour, address, zipcode, city, comment, creationDate) VALUES (:title, :user_id, :hour, :address, :zipcode, :city, :comment, :creationDate)";
         $sth = $this->db->prepare($sql);
         $sth->bindParam("title", $event->title);
-        $sth->bindParam("organisator_id", $event->organisator_id);
-        $sth->bindParam("date", $event->date);
+        $sth->bindParam("user_id", $event->user_id);
+//        $sth->bindParam("date", $event->date);
         $sth->bindParam("hour", $event->hour);
         $sth->bindParam("address", $event->address);
         $sth->bindParam("zipcode", $event->zipcode);
@@ -41,17 +40,17 @@ $app->group('/api/v1', function () use ($app) {
     });
 
 //    // DELETE a todo with given id
-//    $app->delete('/events/[{id}]', function ($request, $response, $args) {
-//        $sth = $this->db->prepare("DELETE FROM events WHERE id=:id");
+//    $app->delete('/event/[{id}]', function ($request, $response, $args) {
+//        $sth = $this->db->prepare("DELETE FROM event WHERE id=:id");
 //        $sth->bindParam("id", $args['id']);
 //        $sth->execute();
 //        return $this->response->withStatus(204); //no-content
 //    });
 
 // Update todo with given id
-//    $app->put('/events/[{id}]', function ($request, $response, $args) {
+//    $app->put('/event/[{id}]', function ($request, $response, $args) {
 //        $event = json_decode($request->getBody());
-//        $sql = "UPDATE events SET task=:task,priority=:priority  WHERE id=:id";
+//        $sql = "UPDATE event SET task=:task,priority=:priority  WHERE id=:id";
 //        $sth = $this->db->prepare($sql);
 //        $sth->bindParam("id", $args['id']);
 //        $sth->bindParam("task", $todo->task);

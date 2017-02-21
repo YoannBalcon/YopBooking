@@ -9,7 +9,7 @@ return [
             'template_path' => __DIR__ . '/../templates/',
         ],
 
-        // Monolog settings
+        // Monolog settingscurl 
         'logger' => [
             'name' => 'slim-app',
             'path' => __DIR__ . '/../logs/app.log',
