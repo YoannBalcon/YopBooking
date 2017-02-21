@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Yopbooking2</string>
+    <string name="app_name">YopBooking</string>
     <string name="action_settings">Paramètres</string>
     <string name="organisator">Par</string>
     <string name="partyDate"> Date</string>
@@ -9,4 +9,11 @@
     <string name="partyZipcode">Code postal</string>
     <string name="partyLocation">Ville</string>
     <string name="partyName">Party name</string>
+    <string name="add_an_event">Ajouter un événement</string>
+    <string name="add">Ajouter</string>
+    <string name="log_in">Connexion</string>
+    <string name="please_log_in">Merci de vous identifier</string>
+    <string name="switch_user">Switch user</string>
+    <string name="welcome_to_yopbooking">Bienvenue sur YopBooking !</string>
+    <string name="register">Je participe</string>
 </resources>

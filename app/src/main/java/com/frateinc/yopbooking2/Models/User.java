@@ -1,4 +1,4 @@
-package com.frateinc.yopbooking2.models;
+package com.frateinc.yopbooking2.Models;
 
 /**
  * Created by Afpa on 09/02/2017.

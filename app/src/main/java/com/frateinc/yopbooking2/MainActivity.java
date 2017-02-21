@@ -3,117 +3,48 @@ package com.frateinc.yopbooking2;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.AdapterView;
-import android.widget.Toast;
-
-import com.frateinc.yopbooking2.models.Event;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ExecutionException;
-
-import static android.R.attr.value;
+import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
-    List<Event> events = new ArrayList<>();
-    //    TextView lblEventTitle;
-//    TextView lblEventBy;
-//    Button btnEventRegister;
-    Button btnLogin;
-    String userName;
-    TextView txtUserName;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-//        lblEventTitle = (TextView) findViewById(R.id.lblEventTitle);
-//        lblEventBy = (TextView) findViewById(R.id.lblEventBy);
-//        btnEventRegister = (Button)findViewById(R.id.btnEventRegister);
-        userName = getIntent().getStringExtra("user_name");
+        setContentView(R.layout.login);
 
-        List<Event> events = null;
-        try {
+        final Spinner dropdown = (Spinner) findViewById(R.id.spinner);
+        final String[] items = new String[]{"Stal", "RiCo", "Giovanni"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        dropdown.setAdapter(adapter);
 
-            FindEvents data = new FindEvents();
-            data.execute();
-            events = data.get();
-            ListView listView = (ListView) findViewById(R.id.listViewEvents);
-            final ListEventAdapter adapter = new ListEventAdapter(this, events);
-            listView.setAdapter(adapter);
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Event levent = adapter.getItem(position);
+        final Button button = (Button) findViewById(R.id.btnListLogin);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String currentItem = (String) dropdown.getSelectedItem();
 
-                    Log.i("selected id event:", String.valueOf(levent.getId()));
-                    Intent i = new Intent(getApplicationContext(), DetailsEvent.class);
-                    startActivity(i);
 
+                if (currentItem.contentEquals("Stal")) {
+                    Param.userId = 1;
+                } else if (currentItem.contentEquals("RiCo")) {
+                    Param.userId = 2;
+                } else if (currentItem.contentEquals("Giovanni")) {
+                    Param.userId = 3;
                 }
-            });
 
-            final Button button = (Button) findViewById(R.id.btnAddEvent);
-            button.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    // Perform action on click
-                    Intent activityChangeIntent = new Intent(MainActivity.this, AddEvent.class);
+                System.out.print((String) dropdown.getSelectedItem());
 
-                    // currentContext.startActivity(activityChangeIntent);
+                // Perform action on click
+                Intent intent = new Intent(MainActivity.this, ListEvents.class);
+                intent.putExtra("user_name", currentItem);
 
-                    MainActivity.this.startActivity(activityChangeIntent);
-                }
-            });
+                // currentContext.startActivity(activityChangeIntent);
+                MainActivity.this.startActivity(intent);
 
-
-            final Button btnLogin = (Button) findViewById(R.id.btnLogin);
-            btnLogin.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    // Perform action on click
-                    Intent activityChangeIntent = new Intent(MainActivity.this, Login.class);
-
-                    // currentContext.startActivity(activityChangeIntent);
-
-                    MainActivity.this.startActivity(activityChangeIntent);
-                }
-            });
-            TextView txtUserName = (TextView) findViewById(R.id.txtUserName);
-            txtUserName.setText(userName);
-
-//
-//            btnEventMore.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(MainActivity.this, DetailsEvent.class);
-//                intent.putExtra("intVariableName", v.getId()); //where v is button that is cliked, you will find it as a parameter to onClick method
-//                startActivity(intent);
-//            }
-//            });
-//
-//            btnEventRegister.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent i = new Intent(getApplicationContext(),RegisterEvent.class);
-//                    startActivity(i);
-//                }
-//            });
-
-
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
+            }
+        });
 
     }
 }
